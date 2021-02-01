@@ -14,7 +14,7 @@ function multipleArr(){
 
   function manipulateArray(index:number,value:number):string | number[]{
     if(index > numberArray.length - 1){
-      return `Error : expected index (${index}), but allowed index <= (${numberArray.length-1})`
+      throw new Error(`Error : expected index (${index}), but allowed index <= (${numberArray.length-1})`) 
     }
     numberArray[index] = value
     return numberArray
@@ -22,12 +22,12 @@ function multipleArr(){
 
   function addEndOfArray(index:number,value : number):string | number[]{
     if(index === numberArray.length + 1){
-      return `Error : expected index (${index}),but end of array at index (${index - 1}) is filled`
+      throw new Error(`Error : expected index (${index}),but end of array at index (${index - 1}) is filled`)
     }
     if(index > numberArray.length - 1){
       numberArray[index] = value
     }else{
-      return `Error : expected index (${index}), but allowed index > (${numberArray.length-1})`
+      throw new Error(`Error : expected index (${index}), but allowed index > (${numberArray.length-1})`)
     }
     return numberArray
   }
